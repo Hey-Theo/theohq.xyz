@@ -1,18 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>THEO — Web3 × AI × Technology</title>
+
   <meta
     name="description"
-    content="THEO — exploring Web3, AI, emerging technologies, markets and ideas shaping the next internet."
-  >
+    content="THEO explores Web3, AI, emerging technology, markets, protocols and ideas shaping the next internet."
+  />
 
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="author" content="THEO" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://theohq.xyz/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theohq.xyz/" />
+  <meta property="og:title" content="THEO — Web3 × AI × Technology" />
+  <meta
+    property="og:description"
+    content="Exploring Web3, AI, technology, markets and ideas shaping the next internet."
+  />
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://theohq.xyz/" />
+  <meta name="twitter:title" content="THEO — Web3 × AI × Technology" />
+  <meta
+    name="twitter:description"
+    content="Exploring Web3, AI, technology, markets and ideas shaping the next internet."
+  />
+
+  <!-- Favicon placeholder -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23080808'/%3E%3Ctext x='50' y='66' font-size='54' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='800'%3ET%3C/text%3E%3C/svg%3E"
+  />
 
   <style>
+    :root {
+      --bg: #080808;
+      --bg-soft: #0d0d0d;
+      --card: #101010;
+      --card-hover: #141414;
+      --border: #202020;
+      --border-hover: #353535;
+
+      --text: #f5f5f5;
+      --text-soft: #b4b4b4;
+      --text-muted: #707070;
+
+      --max-width: 1120px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -25,11 +69,55 @@
 
     body {
       min-height: 100vh;
-      background: #0a0a0a;
-      color: #f5f5f5;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(255, 255, 255, 0.055),
+          transparent 35%
+        ),
+        var(--bg);
+
+      color: var(--text);
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+
+      background-size: 42px 42px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        transparent 75%
+      );
+    }
+
+    ::selection {
+      background: #ffffff;
+      color: #000000;
     }
 
     a {
@@ -37,68 +125,158 @@
       text-decoration: none;
     }
 
-    .container {
-      width: min(1100px, calc(100% - 40px));
-      margin: 0 auto;
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      padding: 28px 0;
-      border-bottom: 1px solid #1c1c1c;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+      background: rgba(8, 8, 8, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
     nav {
+      min-height: 76px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 0.98rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+    }
+
+    .logo-mark {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+      background: #ffffff;
+
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 24px;
-      color: #a3a3a3;
-      font-size: 0.92rem;
+
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
     }
 
     .nav-links a:hover {
       color: #ffffff;
+      transform: translateY(-1px);
     }
 
+    /* =========================
+       HERO
+    ========================= */
+
     main {
-      padding: 110px 0 80px;
+      padding: 150px 0 120px;
+    }
+
+    .hero {
+      max-width: 920px;
     }
 
     .eyebrow {
-      color: #888;
-      font-size: 0.85rem;
-      letter-spacing: 0.14em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-bottom: 24px;
+
+      color: var(--text-muted);
+
+      font-size: 0.78rem;
+      font-weight: 650;
+
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: #ffffff;
+
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.55);
     }
 
     h1 {
-      max-width: 900px;
-      font-size: clamp(3.5rem, 9vw, 7.5rem);
-      line-height: 0.95;
-      letter-spacing: -0.055em;
-      margin-bottom: 28px;
+      max-width: 950px;
+
+      font-size: clamp(4.4rem, 13vw, 9.5rem);
+
+      line-height: 0.84;
+      letter-spacing: -0.075em;
+
+      font-weight: 850;
+
+      margin-bottom: 36px;
+    }
+
+    .hero-title {
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #dcdcdc 45%,
+        #858585 100%
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .hero-text {
-      max-width: 680px;
-      color: #a3a3a3;
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
-      margin-bottom: 34px;
+      max-width: 720px;
+
+      color: var(--text-soft);
+
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+
+      line-height: 1.75;
+
+      margin-bottom: 38px;
     }
 
-    .links {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -107,82 +285,365 @@
     .button {
       display: inline-flex;
       align-items: center;
-      border: 1px solid #2a2a2a;
+      justify-content: center;
+      gap: 8px;
+
+      min-height: 44px;
+
+      padding: 0 18px;
+
+      border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 10px 16px;
-      color: #ddd;
-      transition: 0.2s ease;
+
+      background: rgba(255, 255, 255, 0.018);
+
+      color: #e6e6e6;
+
+      font-size: 0.92rem;
+      font-weight: 600;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .button:hover {
-      border-color: #555;
-      background: #151515;
+      transform: translateY(-2px);
+
+      background: rgba(255, 255, 255, 0.06);
+
+      border-color: var(--border-hover);
     }
+
+    .button.primary {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #050505;
+    }
+
+    .button.primary:hover {
+      background: #e9e9e9;
+      border-color: #e9e9e9;
+    }
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status {
+      margin-top: 34px;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--text-muted);
+
+      font-size: 0.82rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: #72f58a;
+
+      box-shadow: 0 0 12px rgba(114, 245, 138, 0.45);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
 
     section {
-      padding: 80px 0;
-      border-top: 1px solid #1c1c1c;
+      padding: 100px 0;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.065);
     }
 
-    .section-title {
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
+    .section-header {
+      margin-bottom: 36px;
+    }
+
+    .section-label {
+      margin-bottom: 12px;
+
+      color: var(--text-muted);
+
+      font-size: 0.76rem;
+      font-weight: 700;
+
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #666;
-      margin-bottom: 24px;
+    }
+
+    .section-heading {
+      max-width: 760px;
+
+      font-size: clamp(1.9rem, 4vw, 3rem);
+
+      line-height: 1.12;
+      letter-spacing: -0.04em;
     }
 
     .section-text {
-      max-width: 700px;
-      color: #b0b0b0;
-      font-size: 1.1rem;
+      max-width: 760px;
+
+      color: var(--text-soft);
+
+      font-size: 1.05rem;
+      line-height: 1.8;
     }
+
+    /* =========================
+       PROJECTS
+    ========================= */
 
     .project-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
       gap: 16px;
-      margin-top: 28px;
     }
 
     .card {
-      border: 1px solid #1d1d1d;
-      border-radius: 18px;
-      padding: 24px;
-      background: #0d0d0d;
+      min-height: 220px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 28px;
+
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.025),
+          rgba(255, 255, 255, 0)
+        ),
+        var(--card);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+
+      border-color: var(--border-hover);
+
+      background: var(--card-hover);
+    }
+
+    .card-number {
+      color: #555;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
     }
 
     .card h3 {
-      margin-bottom: 8px;
-      font-size: 1.15rem;
+      margin: 28px 0 10px;
+
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
     }
 
     .card p {
-      color: #8f8f8f;
+      color: var(--text-muted);
+
+      line-height: 1.7;
     }
+
+    .card-link {
+      margin-top: 24px;
+
+      color: #d7d7d7;
+
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* =========================
+       LINKS
+    ========================= */
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 12px;
+
+      max-width: 800px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      padding: 18px 20px;
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      background: var(--card);
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-hover);
+    }
+
+    .link-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .link-name {
+      font-weight: 650;
+    }
+
+    .link-handle {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .link-arrow {
+      color: #666;
+      font-size: 1.2rem;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+
+      padding: 28px;
+
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      background: var(--card);
+    }
+
+    .contact-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+
+      margin-bottom: 6px;
+    }
+
+    .contact-description {
+      color: var(--text-muted);
+    }
+
+    .email {
+      color: #ffffff;
+      font-weight: 650;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      padding: 30px 0 45px;
-      border-top: 1px solid #1c1c1c;
-      color: #666;
-      font-size: 0.9rem;
+      padding: 34px 0 50px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.065);
+
+      color: var(--text-muted);
+      font-size: 0.84rem;
     }
 
-    @media (max-width: 700px) {
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      color: #d3d3d3;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 760px) {
       .container {
-        width: min(100% - 28px, 1100px);
+        width: min(100% - 28px, var(--max-width));
       }
 
-      main {
-        padding-top: 80px;
+      header {
+        position: static;
       }
 
       .nav-links {
         display: none;
       }
 
-      .project-grid {
+      nav {
+        min-height: 68px;
+      }
+
+      main {
+        padding: 100px 0 90px;
+      }
+
+      h1 {
+        font-size: clamp(4rem, 23vw, 7rem);
+      }
+
+      section {
+        padding: 78px 0;
+      }
+
+      .project-grid,
+      .link-grid {
         grid-template-columns: 1fr;
+      }
+
+      .contact-box,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-box .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
       }
     }
   </style>
@@ -190,110 +651,354 @@
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
     <div class="container">
       <nav>
-        <a href="/" class="logo">THEO</a>
+
+        <a href="/" class="logo" aria-label="THEO home">
+          <span class="logo-mark"></span>
+          THEO
+        </a>
 
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#links">Links</a>
-          <a href="mailto:theo@theohq.xyz">Contact</a>
+          <a href="#contact">Contact</a>
         </div>
+
       </nav>
     </div>
   </header>
 
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
   <main>
     <div class="container">
 
-      <div class="eyebrow">Web3 × AI × Technology</div>
+      <div class="hero">
 
-      <h1>THEO</h1>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Web3 × AI × Technology
+        </div>
 
-      <p class="hero-text">
-        Exploring emerging protocols, products, markets and ideas
-        shaping the next internet.
-      </p>
+        <h1>
+          <span class="hero-title">THEO</span>
+        </h1>
 
-      <div class="links">
-        <a class="button" href="https://x.com/" target="_blank" rel="noopener">
-          X
-        </a>
+        <p class="hero-text">
+          Exploring emerging protocols, products, markets and ideas
+          shaping the next internet.
+        </p>
 
-        <a class="button" href="https://github.com/" target="_blank" rel="noopener">
-          GitHub
-        </a>
+        <div class="hero-actions">
 
-        <a class="button" href="mailto:theo@theohq.xyz">
-          Email
-        </a>
+          <a
+            class="button primary"
+            href="https://x.com/_HeyTheo"
+            target="_blank"
+            rel="me noopener noreferrer"
+          >
+            Follow on X →
+          </a>
+
+          <a
+            class="button"
+            href="https://github.com/Hey-Theo"
+            target="_blank"
+            rel="me noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            class="button"
+            href="mailto:theo@theohq.xyz"
+          >
+            Email
+          </a>
+
+        </div>
+
+        <div class="status">
+          <span class="status-dot"></span>
+          Currently exploring & building
+        </div>
+
       </div>
 
     </div>
   </main>
 
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
   <section id="about">
     <div class="container">
-      <div class="section-title">About</div>
+
+      <div class="section-header">
+        <div class="section-label">01 — About</div>
+
+        <h2 class="section-heading">
+          A personal lab for ideas, research and building.
+        </h2>
+      </div>
 
       <p class="section-text">
-        THEO is a personal space for Web3 research, technology,
-        experiments, writing and things worth exploring.
+        THEO is a personal space for exploring Web3, AI, technology,
+        markets, experiments and the people building what comes next.
+        I document interesting protocols, test new ideas and build things
+        along the way.
       </p>
+
     </div>
   </section>
 
+
+  <!-- =========================
+       PROJECTS
+  ========================= -->
+
   <section id="projects">
     <div class="container">
-      <div class="section-title">Projects</div>
+
+      <div class="section-header">
+        <div class="section-label">02 — Projects</div>
+
+        <h2 class="section-heading">
+          Things I'm exploring.
+        </h2>
+      </div>
 
       <div class="project-grid">
 
         <article class="card">
-          <h3>Web3 Research</h3>
-          <p>
-            Exploring protocols, products, markets and emerging
-            blockchain infrastructure.
-          </p>
+
+          <div>
+            <div class="card-number">01</div>
+
+            <h3>Web3 Research</h3>
+
+            <p>
+              Exploring protocols, products, markets, blockchain
+              infrastructure and emerging crypto ecosystems.
+            </p>
+          </div>
+
+          <a class="card-link" href="#links">
+            Explore links →
+          </a>
+
         </article>
 
+
         <article class="card">
-          <h3>AI & Building</h3>
-          <p>
-            Experiments with AI, software, automation and
-            new ways of building.
-          </p>
+
+          <div>
+            <div class="card-number">02</div>
+
+            <h3>AI & Building</h3>
+
+            <p>
+              Experimenting with AI tools, software, automation,
+              vibe coding and new ways of building.
+            </p>
+          </div>
+
+          <a class="card-link" href="https://github.com/Hey-Theo"
+             target="_blank"
+             rel="me noopener noreferrer">
+            View GitHub →
+          </a>
+
+        </article>
+
+
+        <article class="card">
+
+          <div>
+            <div class="card-number">03</div>
+
+            <h3>Writing</h3>
+
+            <p>
+              Guides, research, observations and notes on technology,
+              markets and emerging internet culture.
+            </p>
+          </div>
+
+          <span class="card-link">
+            Coming soon
+          </span>
+
+        </article>
+
+
+        <article class="card">
+
+          <div>
+            <div class="card-number">04</div>
+
+            <h3>Experiments</h3>
+
+            <p>
+              Small projects, new protocols, products and ideas worth
+              testing before they become obvious.
+            </p>
+          </div>
+
+          <span class="card-link">
+            More soon
+          </span>
+
         </article>
 
       </div>
+
     </div>
   </section>
+
+
+  <!-- =========================
+       LINKS
+  ========================= -->
 
   <section id="links">
     <div class="container">
-      <div class="section-title">Links</div>
 
-      <div class="links">
-        <a class="button" href="https://x.com/" target="_blank" rel="noopener">
-          X
-        </a>
+      <div class="section-header">
+        <div class="section-label">03 — Links</div>
 
-        <a class="button" href="https://github.com/" target="_blank" rel="noopener">
-          GitHub
-        </a>
-
-        <a class="button" href="mailto:hello@theohq.xyz">
-          hello@theohq.xyz
-        </a>
+        <h2 class="section-heading">
+          Find THEO elsewhere.
+        </h2>
       </div>
+
+
+      <div class="link-grid">
+
+        <a
+          class="link-card"
+          href="https://x.com/_HeyTheo"
+          target="_blank"
+          rel="me noopener noreferrer"
+        >
+          <div class="link-left">
+            <span class="link-name">X</span>
+            <span class="link-handle">@_HeyTheo</span>
+          </div>
+
+          <span class="link-arrow">↗</span>
+        </a>
+
+
+        <a
+          class="link-card"
+          href="https://github.com/Hey-Theo"
+          target="_blank"
+          rel="me noopener noreferrer"
+        >
+          <div class="link-left">
+            <span class="link-name">GitHub</span>
+            <span class="link-handle">Hey-Theo</span>
+          </div>
+
+          <span class="link-arrow">↗</span>
+        </a>
+
+
+        <a
+          class="link-card"
+          href="mailto:theo@theohq.xyz"
+        >
+          <div class="link-left">
+            <span class="link-name">Email</span>
+            <span class="link-handle">theo@theohq.xyz</span>
+          </div>
+
+          <span class="link-arrow">↗</span>
+        </a>
+
+
+        <a
+          class="link-card"
+          href="https://theohq.xyz/"
+        >
+          <div class="link-left">
+            <span class="link-name">Website</span>
+            <span class="link-handle">theohq.xyz</span>
+          </div>
+
+          <span class="link-arrow">↗</span>
+        </a>
+
+      </div>
+
     </div>
   </section>
 
+
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
+  <section id="contact">
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div>
+          <div class="contact-title">
+            Let's connect.
+          </div>
+
+          <div class="contact-description">
+            Projects, collaborations, ideas or interesting things.
+          </div>
+        </div>
+
+        <a
+          class="button primary"
+          href="mailto:hello@theohq.xyz"
+        >
+          hello@theohq.xyz
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
     <div class="container">
-      © 2026 THEO · theohq.xyz
+
+      <div class="footer-inner">
+
+        <div>
+          © 2026 <span class="footer-brand">THEO</span>
+        </div>
+
+        <div>
+          theohq.xyz
+        </div>
+
+      </div>
+
     </div>
   </footer>
 
