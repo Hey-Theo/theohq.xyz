@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>THEO — Web3 × AI × Technology</title>
+  <meta
+    name="description"
+    content="THEO — exploring Web3, AI, emerging technologies, markets and ideas shaping the next internet."
+  >
+
+  <meta name="theme-color" content="#0a0a0a">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #0a0a0a;
+      color: #f5f5f5;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid #1c1c1c;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: #a3a3a3;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    main {
+      padding: 110px 0 80px;
+    }
+
+    .eyebrow {
+      color: #888;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      margin-bottom: 28px;
+    }
+
+    .hero-text {
+      max-width: 680px;
+      color: #a3a3a3;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      margin-bottom: 34px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #2a2a2a;
+      border-radius: 999px;
+      padding: 10px 16px;
+      color: #ddd;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      border-color: #555;
+      background: #151515;
+    }
+
+    section {
+      padding: 80px 0;
+      border-top: 1px solid #1c1c1c;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .section-text {
+      max-width: 700px;
+      color: #b0b0b0;
+      font-size: 1.1rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .card {
+      border: 1px solid #1d1d1d;
+      border-radius: 18px;
+      padding: 24px;
+      background: #0d0d0d;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: #8f8f8f;
+    }
+
+    footer {
+      padding: 30px 0 45px;
+      border-top: 1px solid #1c1c1c;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 28px, 1100px);
+      }
+
+      main {
+        padding-top: 80px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">THEO</a>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#links">Links</a>
+          <a href="mailto:theo@theohq.xyz">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="eyebrow">Web3 × AI × Technology</div>
+
+      <h1>THEO</h1>
+
+      <p class="hero-text">
+        Exploring emerging protocols, products, markets and ideas
+        shaping the next internet.
+      </p>
+
+      <div class="links">
+        <a class="button" href="https://x.com/" target="_blank" rel="noopener">
+          X
+        </a>
+
+        <a class="button" href="https://github.com/" target="_blank" rel="noopener">
+          GitHub
+        </a>
+
+        <a class="button" href="mailto:theo@theohq.xyz">
+          Email
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">About</div>
+
+      <p class="section-text">
+        THEO is a personal space for Web3 research, technology,
+        experiments, writing and things worth exploring.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">Projects</div>
+
+      <div class="project-grid">
+
+        <article class="card">
+          <h3>Web3 Research</h3>
+          <p>
+            Exploring protocols, products, markets and emerging
+            blockchain infrastructure.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>AI & Building</h3>
+          <p>
+            Experiments with AI, software, automation and
+            new ways of building.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="links">
+    <div class="container">
+      <div class="section-title">Links</div>
+
+      <div class="links">
+        <a class="button" href="https://x.com/" target="_blank" rel="noopener">
+          X
+        </a>
+
+        <a class="button" href="https://github.com/" target="_blank" rel="noopener">
+          GitHub
+        </a>
+
+        <a class="button" href="mailto:hello@theohq.xyz">
+          hello@theohq.xyz
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 THEO · theohq.xyz
+    </div>
+  </footer>
+
+</body>
+</html>
